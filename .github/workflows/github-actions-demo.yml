@@ -40,5 +40,5 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: '🚀 Деплой завершено! Перевірте ваш [GitHub Pages](https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}) 🌐'
+            body: '🚀 Деплой завершено! Перевірте ваш [GitHub Pages](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}) 🌐'
           })
