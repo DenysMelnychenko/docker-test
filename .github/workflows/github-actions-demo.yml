@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 18.x, 12.x]
+        node-version: [ 18.x, 20.x]
     steps:
     - uses: actions/checkout@v2
     - name: 🎉 Встановлення Node.js ${{ matrix.node-version }}
