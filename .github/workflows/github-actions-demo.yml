@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: 🎉 Встановлення Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v2і
       with:
         node-version: ${{ matrix.node-version }}
     - name: 🚀 Встановлення залежностей
@@ -22,6 +22,7 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./coverage/lcov.info
     - name: 🎨 Генерація статусу з креативними емодзі
       run: "echo 'Статус білду: 🟢 УСПІХ або 🔴 ПОМИЛКА'"
     - name: 📦 Білд додатку
