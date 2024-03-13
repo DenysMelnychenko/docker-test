@@ -16,8 +16,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: 🚀 Встановлення залежностей
       run: npm install
-    - name: 🌐 Запуск тестів з покриттям
-      run: npm run test -- --coverage
+    - name: 🌐 Запуск тестів
+      run: npm run test    
     - name: 📊 Відправка звіту про покриття коду тестами в Coveralls
       uses: coverallsapp/github-action@master
       with:
