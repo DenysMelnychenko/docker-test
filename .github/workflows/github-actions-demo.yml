@@ -18,11 +18,11 @@ jobs:
       run: npm install
     - name: 🌐 Запуск тестів
       run: npm run test    
-    - name: 📊 Відправка звіту про покриття коду тестами в Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./coverage/lcov.info
+#   - name: 📊 Відправка звіту про покриття коду тестами в Coveralls
+#     uses: coverallsapp/github-action@master
+#     with:
+#       github-token: ${{ secrets.GITHUB_TOKEN }}
+#       path-to-lcov: ./coverage/lcov.info
     - name: 🎨 Генерація статусу з креативними емодзі
       run: "echo 'Статус білду: 🟢 УСПІХ або 🔴 ПОМИЛКА'"
     - name: 📦 Білд додатку
