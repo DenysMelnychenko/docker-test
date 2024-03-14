@@ -32,13 +32,22 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
-    - name: 📢 Сповіщення про успішний деплой
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Comment on Commit
       uses: actions/github-script@v3
       with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          github.issues.createComment({
-            issue_number: github.event.pull_request.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: '🚀 Деплой завершено! Перевірте ваш [GitHub Pages](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}) 🌐'
-          })
+          const commit_sha = process.env.GITHUB_SHA;
+          const owner = context.repo.owner;
+          const repo = context.repo.repo;
+             const body = "🚀 Деплой завершено! Перевірте ваш [GitHub Pages](https://${owner}.github.io/${repo}) 🌐";
+          
+          // Створення коментаря до коміту
+          await github.repos.createCommitComment({
+            owner,
+            repo,
+            commit_sha,
+            body
+          });
