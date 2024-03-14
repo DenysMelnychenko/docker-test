@@ -42,7 +42,7 @@ jobs:
           const commit_sha = process.env.GITHUB_SHA;
           const owner = context.repo.owner;
           const repo = context.repo.repo;
-             const body = "🚀 Деплой завершено! Перевірте ваш [GitHub Pages](https://${owner}.github.io/${repo}) 🌐";
+             const body = "🚀 Деплой завершено! Перевірте ваш [GitHub Pages]((https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}) 🌐";
           
           // Створення коментаря до коміту
           await github.repos.createCommitComment({
