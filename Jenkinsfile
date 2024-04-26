@@ -1,13 +1,11 @@
 pipeline {
     agent any
-    environment {
-        DOCKER_IMAGE = 'my-angular-app'
-    }
     stages {
         stage('Build') {
             steps {
                 script {
-                    docker.build("$DOCKER_IMAGE")
+                    // Замість "docker.build" використовуйте підхід через sh або bat команди
+                    sh 'docker build -t my-angular-app .'
                 }
             }
         }
@@ -20,9 +18,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    docker.withRegistry('url', 'credentials-id') {
-                        docker.image("$DOCKER_IMAGE").push('latest')
-                    }
+                    // Для push імеджу використовуйте команду через sh
+                    sh 'docker push my-angular-app:latest'
                 }
             }
         }
